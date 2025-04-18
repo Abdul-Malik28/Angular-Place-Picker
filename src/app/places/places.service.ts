@@ -24,11 +24,11 @@ export class PlacesService {
       }));
   }
 
-  addPlaceToUserPlaces(placeId: string) {
+  addPlaceToUserPlaces(place: Place) {
+    this.userPlaces.update((prevPlaces) => [...prevPlaces, place]);
     return this.httpClient.put('http://localhost:3000/user-places', {
-      // placeId: placeId,
-      placeId // shortcut
-    })
+      placeId: place.id
+    });
   }
 
   removeUserPlace(place: Place) { }
