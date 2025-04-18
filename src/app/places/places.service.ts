@@ -10,11 +10,15 @@ export class PlacesService {
 
   loadedUserPlaces = this.userPlaces.asReadonly();
 
-  loadAvailablePlaces() {}
+  loadAvailablePlaces() { }
 
-  loadUserPlaces() {}
+  loadUserPlaces() { }
 
-  addPlaceToUserPlaces(place: Place) {}
+  addPlaceToUserPlaces(place: Place) { }
 
-  removeUserPlace(place: Place) {}
+  removeUserPlace(place: Place) { }
+
+  private fetchPlaces() {
+    
+  }
 }

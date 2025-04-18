@@ -38,7 +38,7 @@ export class AvailablePlacesComponent implements OnInit {
         this.places.set(places);
       },
       error: (err: Error) => {
-        // console.log(erryyyyyyy);
+        // console.log(err);
         this.error.set(err.message);
       },
       complete: () => {
@@ -48,6 +48,14 @@ export class AvailablePlacesComponent implements OnInit {
 
     this.destroyRef.onDestroy(() => {
       subscription.unsubscribe();
+    });
+  }
+
+  onSelectPlace(selectedPlace: Place) {
+    this.httpClient.put('http://localhost:3000/user-places', {
+      placeId: selectedPlace.id
+    }).subscribe({
+      next: (resData) => console.log(resData)
     });
   }
 
